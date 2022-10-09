@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "horse-pg"
+name = "horse-pj"
 version = "0.1.0"
 description = ""
 authors = ["wataru"]
 readme = "README.md"
-packages = [{include = "horse_pg"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

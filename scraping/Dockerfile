@@ -46,12 +46,11 @@ RUN curl https://pyenv.run | bash && \
 
 # Install python packages
 ENV PATH $HOME/.local/bin:$PATH
-COPY ./pyproject.toml ./poetry.lock /app/
+# Copy local data
+COPY . /app
 RUN eval "$(pyenv init -)" && \
     eval "$(pyenv virtualenv-init -)" && \
     curl -sSL https://install.python-poetry.org | python - && \
     poetry config virtualenvs.in-project true && \
-    poetry install --no-root
+    poetry install
 
-# Copy local data
-COPY . /app
