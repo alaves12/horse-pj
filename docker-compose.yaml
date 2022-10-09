@@ -1,0 +1,12 @@
+version: '3'
+services:
+  scraype:
+    build:
+      context: ./scraping
+    container_name: scraping
+    tty: true
+    privileged: true
+    volumes:
+      - ./scraping:/app
+    env_file:
+      - ./scraping/scraping.env
