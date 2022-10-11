@@ -9,4 +9,4 @@ services:
     volumes:
       - ./scraping:/app
     env_file:
-      - ./scraping/scraping.env
+      - ./envs/scraping.env

@@ -1,16 +1,14 @@
 import requests
-import urllib
-from urllib.parse import urljoin
 import bs4
 from tqdm import tqdm
 import time
-import pandas as pd
 import csv
+import os
 
 
-CSV_DIR = "Ouma"
-URL_BASE = "https://db.netkeiba.com/race/"
- 
+CSV_DIR = os.getenv("CSV_DIR", "Ouma")
+URL_BASE = os.getenv("URL_BASE")
+
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36   '
 } 
@@ -25,10 +23,9 @@ def numStr(num):
 def get_text_from_page(url):
 
     try:
-
         # メールアドレスとパスワードの指定
-        USER = "****"
-        PASS = "****"
+        USER = os.getenv("USER")
+        PASS = os.getenv("PASS")
 
         login_info = {
             "login_id":USER,
